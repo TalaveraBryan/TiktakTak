@@ -22,7 +22,9 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Panel1 = New Panel()
+        PictureBox1 = New PictureBox()
         Label5 = New Label()
         Panel2 = New Panel()
         Panel4 = New Panel()
@@ -44,6 +46,7 @@ Partial Class Form1
         btnTik2 = New Button()
         btnTik1 = New Button()
         Panel1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         Panel4.SuspendLayout()
         Panel3.SuspendLayout()
@@ -51,21 +54,33 @@ Partial Class Form1
         ' 
         ' Panel1
         ' 
+        Panel1.BackColor = Color.Navy
         Panel1.BorderStyle = BorderStyle.Fixed3D
+        Panel1.Controls.Add(PictureBox1)
         Panel1.Controls.Add(Label5)
         Panel1.Location = New Point(12, 12)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(1335, 129)
         Panel1.TabIndex = 0
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(3, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(152, 119)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 17
+        PictureBox1.TabStop = False
+        ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
-        Label5.ForeColor = Color.WhiteSmoke
-        Label5.Location = New Point(17, 17)
+        Label5.Font = New Font("MS Reference Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.ForeColor = Color.GreenYellow
+        Label5.Location = New Point(413, 21)
         Label5.Name = "Label5"
-        Label5.Size = New Size(364, 86)
+        Label5.Size = New Size(407, 79)
         Label5.TabIndex = 16
         Label5.Text = "Tic Tac Toe"
         ' 
@@ -81,6 +96,7 @@ Partial Class Form1
         ' 
         ' Panel4
         ' 
+        Panel4.BackColor = Color.ForestGreen
         Panel4.BorderStyle = BorderStyle.Fixed3D
         Panel4.Controls.Add(Otxt)
         Panel4.Controls.Add(Xtxt)
@@ -89,16 +105,17 @@ Partial Class Form1
         Panel4.Controls.Add(Newgamebtn)
         Panel4.Controls.Add(Extbtn)
         Panel4.Controls.Add(Rsbtn)
-        Panel4.Location = New Point(647, 3)
+        Panel4.Location = New Point(660, 3)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(670, 545)
+        Panel4.Size = New Size(668, 545)
         Panel4.TabIndex = 2
         ' 
         ' Otxt
         ' 
         Otxt.BackColor = Color.WhiteSmoke
         Otxt.BorderStyle = BorderStyle.Fixed3D
-        Otxt.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        Otxt.Enabled = False
+        Otxt.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         Otxt.Location = New Point(373, 168)
         Otxt.Name = "Otxt"
         Otxt.Size = New Size(234, 86)
@@ -109,7 +126,8 @@ Partial Class Form1
         ' 
         Xtxt.BackColor = Color.WhiteSmoke
         Xtxt.BorderStyle = BorderStyle.Fixed3D
-        Xtxt.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        Xtxt.Enabled = False
+        Xtxt.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         Xtxt.Location = New Point(373, 33)
         Xtxt.Name = "Xtxt"
         Xtxt.Size = New Size(234, 86)
@@ -119,30 +137,30 @@ Partial Class Form1
         ' PlayerO
         ' 
         PlayerO.AutoSize = True
-        PlayerO.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        PlayerO.Font = New Font("MS Reference Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point)
         PlayerO.Location = New Point(23, 168)
         PlayerO.Name = "PlayerO"
-        PlayerO.Size = New Size(305, 86)
+        PlayerO.Size = New Size(343, 79)
         PlayerO.TabIndex = 13
         PlayerO.Text = "Player O:"
         ' 
         ' PlayerX
         ' 
         PlayerX.AutoSize = True
-        PlayerX.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        PlayerX.Font = New Font("MS Reference Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point)
         PlayerX.Location = New Point(23, 33)
         PlayerX.Name = "PlayerX"
-        PlayerX.Size = New Size(298, 86)
+        PlayerX.Size = New Size(337, 79)
         PlayerX.TabIndex = 12
         PlayerX.Text = "Player X:"
         ' 
         ' Newgamebtn
         ' 
         Newgamebtn.BackColor = Color.WhiteSmoke
-        Newgamebtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold)
-        Newgamebtn.Location = New Point(-2, 284)
+        Newgamebtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Newgamebtn.Location = New Point(84, 288)
         Newgamebtn.Name = "Newgamebtn"
-        Newgamebtn.Size = New Size(665, 96)
+        Newgamebtn.Size = New Size(523, 96)
         Newgamebtn.TabIndex = 11
         Newgamebtn.Text = "New game"
         Newgamebtn.UseVisualStyleBackColor = False
@@ -150,27 +168,28 @@ Partial Class Form1
         ' Extbtn
         ' 
         Extbtn.BackColor = Color.WhiteSmoke
-        Extbtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold)
-        Extbtn.Location = New Point(340, 386)
+        Extbtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Extbtn.Location = New Point(346, 418)
         Extbtn.Name = "Extbtn"
-        Extbtn.Size = New Size(323, 135)
+        Extbtn.Size = New Size(261, 87)
         Extbtn.TabIndex = 10
-        Extbtn.Text = "Exit"
+        Extbtn.Text = "Back"
         Extbtn.UseVisualStyleBackColor = False
         ' 
         ' Rsbtn
         ' 
         Rsbtn.BackColor = Color.WhiteSmoke
-        Rsbtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold)
-        Rsbtn.Location = New Point(3, 386)
+        Rsbtn.Font = New Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Rsbtn.Location = New Point(84, 417)
         Rsbtn.Name = "Rsbtn"
-        Rsbtn.Size = New Size(331, 135)
+        Rsbtn.Size = New Size(220, 88)
         Rsbtn.TabIndex = 9
         Rsbtn.Text = "Reset"
         Rsbtn.UseVisualStyleBackColor = False
         ' 
         ' Panel3
         ' 
+        Panel3.BackColor = Color.Black
         Panel3.BorderStyle = BorderStyle.Fixed3D
         Panel3.Controls.Add(btnTik9)
         Panel3.Controls.Add(btnTik8)
@@ -189,7 +208,7 @@ Partial Class Form1
         ' btnTik9
         ' 
         btnTik9.BackColor = Color.WhiteSmoke
-        btnTik9.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik9.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik9.Location = New Point(415, 363)
         btnTik9.Name = "btnTik9"
         btnTik9.Size = New Size(200, 158)
@@ -199,7 +218,7 @@ Partial Class Form1
         ' btnTik8
         ' 
         btnTik8.BackColor = Color.WhiteSmoke
-        btnTik8.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik8.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik8.Location = New Point(209, 363)
         btnTik8.Name = "btnTik8"
         btnTik8.Size = New Size(200, 158)
@@ -209,7 +228,7 @@ Partial Class Form1
         ' btnTik7
         ' 
         btnTik7.BackColor = Color.WhiteSmoke
-        btnTik7.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik7.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik7.Location = New Point(3, 363)
         btnTik7.Name = "btnTik7"
         btnTik7.Size = New Size(200, 158)
@@ -219,7 +238,7 @@ Partial Class Form1
         ' btnTik6
         ' 
         btnTik6.BackColor = Color.WhiteSmoke
-        btnTik6.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik6.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik6.Location = New Point(415, 186)
         btnTik6.Name = "btnTik6"
         btnTik6.Size = New Size(200, 158)
@@ -229,7 +248,7 @@ Partial Class Form1
         ' btnTik5
         ' 
         btnTik5.BackColor = Color.WhiteSmoke
-        btnTik5.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik5.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik5.Location = New Point(209, 186)
         btnTik5.Name = "btnTik5"
         btnTik5.Size = New Size(200, 158)
@@ -239,7 +258,7 @@ Partial Class Form1
         ' btnTik4
         ' 
         btnTik4.BackColor = Color.WhiteSmoke
-        btnTik4.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik4.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik4.Location = New Point(3, 186)
         btnTik4.Name = "btnTik4"
         btnTik4.Size = New Size(200, 158)
@@ -249,7 +268,7 @@ Partial Class Form1
         ' btnTik3
         ' 
         btnTik3.BackColor = Color.WhiteSmoke
-        btnTik3.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik3.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik3.Location = New Point(415, 13)
         btnTik3.Name = "btnTik3"
         btnTik3.Size = New Size(200, 158)
@@ -259,7 +278,7 @@ Partial Class Form1
         ' btnTik2
         ' 
         btnTik2.BackColor = Color.WhiteSmoke
-        btnTik2.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik2.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik2.Location = New Point(209, 13)
         btnTik2.Name = "btnTik2"
         btnTik2.Size = New Size(200, 158)
@@ -269,7 +288,7 @@ Partial Class Form1
         ' btnTik1
         ' 
         btnTik1.BackColor = Color.WhiteSmoke
-        btnTik1.Font = New Font("Segoe UI", 48F, FontStyle.Bold)
+        btnTik1.Font = New Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point)
         btnTik1.Location = New Point(3, 13)
         btnTik1.Name = "btnTik1"
         btnTik1.Size = New Size(200, 158)
@@ -284,10 +303,16 @@ Partial Class Form1
         ClientSize = New Size(1370, 749)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        MaximizeBox = False
+        MinimizeBox = False
         Name = "Form1"
-        Text = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "TicTacToe"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
@@ -316,5 +341,6 @@ Partial Class Form1
     Friend WithEvents Otxt As Label
     Friend WithEvents Xtxt As Label
     Friend WithEvents PlayerO As Label
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class
